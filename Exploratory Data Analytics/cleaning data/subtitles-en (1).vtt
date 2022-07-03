@@ -1,0 +1,486 @@
+WEBVTT
+
+1
+00:00:00.970 --> 00:00:04.350
+Now that we've pulled in our data,
+let's discuss the next steps,
+
+2
+00:00:04.350 --> 00:00:06.560
+starting with the importance
+of cleaning our data.
+
+3
+00:00:08.230 --> 00:00:10.490
+So let's go over the learning goals for
+the section.
+
+4
+00:00:11.530 --> 00:00:16.230
+We're going to go over, why data cleaning
+is important for machine learning?
+
+5
+00:00:16.230 --> 00:00:17.925
+Think garbage-in, garbage-out.
+
+6
+00:00:17.925 --> 00:00:20.190
+Our models can only be
+as good as our data.
+
+7
+00:00:21.400 --> 00:00:23.690
+Some issues that arise with messy data and
+
+8
+00:00:23.690 --> 00:00:26.150
+ways in which data can be
+messy in the first place.
+
+9
+00:00:27.390 --> 00:00:31.830
+How to identify duplicate or unnecessary
+data and how to handle that accordingly.
+
+10
+00:00:33.100 --> 00:00:35.890
+And policies for dealing with outliers,
+and the pros and
+
+11
+00:00:35.890 --> 00:00:39.029
+cons of different methods,
+as there's not one size that fits all.
+
+12
+00:00:41.000 --> 00:00:43.600
+So why is data cleaning so important?
+
+13
+00:00:43.600 --> 00:00:47.900
+We know that decisions in analytics are
+increasingly driven by data and models.
+
+14
+00:00:49.150 --> 00:00:51.700
+And key aspects of our
+Machine Learning Workflow
+
+15
+00:00:51.700 --> 00:00:53.340
+are getting depend on cleaned data.
+
+16
+00:00:55.010 --> 00:00:59.490
+Observations, an instance of the data
+usually a row of the dataset.
+
+17
+00:00:59.490 --> 00:01:04.130
+Think if a row, an observation is
+not clean, we are misrepresenting
+
+18
+00:01:04.130 --> 00:01:07.380
+to our model, the relationship
+between our features and our targets.
+
+19
+00:01:08.550 --> 00:01:11.400
+Our labels have to be labeled correctly,
+right,
+
+20
+00:01:11.400 --> 00:01:13.980
+our output variables being predicted.
+
+21
+00:01:13.980 --> 00:01:17.230
+We need to make sure that they
+are all labeled appropriately.
+
+22
+00:01:17.230 --> 00:01:19.240
+We can think to ImageNet,
+
+23
+00:01:19.240 --> 00:01:21.850
+which we discussed where we're
+labeling all the pictures.
+
+24
+00:01:21.850 --> 00:01:25.277
+And if humans were labeling the pictures
+in order to create that dataset,
+
+25
+00:01:25.277 --> 00:01:29.445
+if they mislabeled one of those pictures,
+then it will mislead our model.
+
+26
+00:01:29.445 --> 00:01:35.250
+Our algorithms, the computer programs that
+estimate models based on available data,
+
+27
+00:01:35.250 --> 00:01:38.470
+we need to recognize that our
+algorithms are going to be learned,
+
+28
+00:01:38.470 --> 00:01:40.919
+assuming the data accurately
+represents a real world.
+
+29
+00:01:42.190 --> 00:01:46.030
+Our features, the information we have for
+each information,
+
+30
+00:01:46.030 --> 00:01:50.020
+if the recording of certain features
+are out, such as transaction amounts or
+
+31
+00:01:50.020 --> 00:01:55.070
+locations with fraud, think about how
+easily that can throw off fraud detection.
+
+32
+00:01:55.070 --> 00:01:57.740
+And then the model itself,
+
+33
+00:01:57.740 --> 00:02:00.810
+the hypothesized relationship
+between observations and data.
+
+34
+00:02:01.860 --> 00:02:04.430
+The model itself is going to be assuming
+
+35
+00:02:04.430 --> 00:02:07.160
+that this is actual data
+representing the real world.
+
+36
+00:02:09.390 --> 00:02:14.690
+So, the bottom line is, messy data can
+lead to "garbage-in, garbage-out" effect,
+
+37
+00:02:14.690 --> 00:02:18.520
+and therefore unreliable
+outcomes given our dataset.
+
+38
+00:02:18.520 --> 00:02:22.280
+So, the first step must always be
+to ensure that our data is clean.
+
+39
+00:02:23.410 --> 00:02:26.775
+So, what are some problems that companies
+face in regard to having clean data?
+
+40
+00:02:26.775 --> 00:02:29.355
+Be a lack of data.
+
+41
+00:02:29.355 --> 00:02:33.770
+For model to be successful,
+there must be sufficient relevant data.
+
+42
+00:02:33.770 --> 00:02:36.990
+And if not, companies need to start
+by ensuring that they are collecting
+
+43
+00:02:36.990 --> 00:02:40.920
+the appropriate data, or if needed,
+acquiring additional data from third
+
+44
+00:02:40.920 --> 00:02:44.620
+parties, and making all that data
+accessible throughout their organization.
+
+45
+00:02:46.200 --> 00:02:49.920
+Now although a lack of data can hamper
+AI adoption, the same can be said for
+
+46
+00:02:49.920 --> 00:02:51.450
+having too much data.
+
+47
+00:02:51.450 --> 00:02:54.720
+When companies have too much data spread
+across different environments and
+
+48
+00:02:54.720 --> 00:02:58.440
+databases, it quickly becomes
+a data engineering problem.
+
+49
+00:02:58.440 --> 00:03:02.060
+In this instance, companies need
+to collect and organize their data
+
+50
+00:03:02.060 --> 00:03:06.020
+to make it ready to even consider getting
+into leveraging it for machine learning.
+
+51
+00:03:07.020 --> 00:03:11.230
+And then just bad data, garbage-in,
+garbage-out, as we said earlier.
+
+52
+00:03:11.230 --> 00:03:15.180
+The problem is that even though business
+leaders list improving the use of data as
+
+53
+00:03:15.180 --> 00:03:21.180
+a top priority, 60% are challenged by
+managing data quality in the first place.
+
+54
+00:03:21.180 --> 00:03:25.770
+So, the first step for any organization to
+get started with artificial intelligence
+
+55
+00:03:25.770 --> 00:03:29.340
+or machine learning, is ensuring that
+their data is actually ready for use.
+
+56
+00:03:31.740 --> 00:03:33.380
+So how can data be messy?
+
+57
+00:03:33.380 --> 00:03:37.840
+What do we mean by messy data and
+have data duplicates that can
+
+58
+00:03:37.840 --> 00:03:42.700
+bring extra weight to observations to
+our model or bring in unnecessary noise?
+
+59
+00:03:42.700 --> 00:03:46.520
+So, if we think about our example of fraud,
+if we have a certain
+
+60
+00:03:46.520 --> 00:03:50.730
+credit card transaction that was fraud,
+and that's repeated 200 times with
+
+61
+00:03:50.730 --> 00:03:55.560
+the label of fraud, all those features
+that led to that fraud will have a lot
+
+62
+00:03:55.560 --> 00:03:59.009
+more weight because it was accidentally
+duplicated that many more times.
+
+63
+00:04:00.670 --> 00:04:05.190
+Inconsistent text and typos, data will
+often depend on correct spelling.
+
+64
+00:04:05.190 --> 00:04:07.700
+You have to have no extra spaces,
+
+65
+00:04:07.700 --> 00:04:10.770
+the capitalized versus
+non-capitalized letters.
+
+66
+00:04:10.770 --> 00:04:15.200
+This will all lead to the same feature,
+the same value for a feature,
+
+67
+00:04:15.200 --> 00:04:19.910
+being categorized as different
+values within the same feature set,
+
+68
+00:04:19.910 --> 00:04:21.760
+even though they should be
+categorized as the same.
+
+69
+00:04:21.760 --> 00:04:23.990
+And that missing data,
+
+70
+00:04:23.990 --> 00:04:28.310
+and that should be something we'll have to
+deal with to some degree, no matter what.
+
+71
+00:04:28.310 --> 00:04:32.950
+But too much in the wrong fields, can lead
+to an inability to use certain features,
+
+72
+00:04:32.950 --> 00:04:35.130
+which otherwise may have
+been powerful predictors.
+
+73
+00:04:36.290 --> 00:04:39.880
+Outliers will occur that can skew
+a feature disproportionately and
+
+74
+00:04:39.880 --> 00:04:42.210
+make it difficult to find
+the true underlying model.
+
+75
+00:04:43.630 --> 00:04:45.620
+We can have data sourcing issues.
+
+76
+00:04:45.620 --> 00:04:49.270
+We have trouble bringing in
+data from multiple systems, or
+
+77
+00:04:49.270 --> 00:04:52.860
+working with different database types,
+or trying to wrangle and
+
+78
+00:04:52.860 --> 00:04:58.080
+combine data coming from on-premises
+versus on-the-cloud or many others.
+
+79
+00:04:58.080 --> 00:05:02.750
+And trying to pull in data from all
+these different data sources can lead to
+
+80
+00:05:02.750 --> 00:05:05.680
+mismatch when trying to
+talk about the same data
+
+81
+00:05:05.680 --> 00:05:08.340
+when it's being pulled in
+from different sources.
+
+82
+00:05:08.340 --> 00:05:11.170
+So, let's start off with,
+how do we work with duplicated data?
+
+83
+00:05:11.170 --> 00:05:17.130
+You want to dive in and see if duplicate
+observations are indeed needed or not.
+
+84
+00:05:17.130 --> 00:05:21.610
+It's possible for Iris dataset, for
+example, to have duplicates if two flowers
+
+85
+00:05:21.610 --> 00:05:25.110
+are indeed exactly the same, they have
+the same exact measurements for sepal and
+
+86
+00:05:25.110 --> 00:05:28.320
+petal length, and
+they are the same species.
+
+87
+00:05:28.320 --> 00:05:30.010
+That could happen out in the wilds,
+
+88
+00:05:30.010 --> 00:05:32.500
+given that we're only going
+up to two decimal points.
+
+89
+00:05:32.500 --> 00:05:35.490
+And we probably want to keep
+both those observations in place
+
+90
+00:05:35.490 --> 00:05:36.849
+if that's happening in the real world.
+
+91
+00:05:38.270 --> 00:05:40.400
+Now, for trying to label pictures,
+
+92
+00:05:40.400 --> 00:05:45.660
+for example, we probably don't want to
+have duplicate of the same exact picture,
+
+93
+00:05:45.660 --> 00:05:48.010
+because that's not going to help
+in our labeling process at all.
+
+94
+00:05:49.810 --> 00:05:52.200
+It's always a good idea to
+look at the features and
+
+95
+00:05:52.200 --> 00:05:55.640
+filter the data first to get
+a better look at the duplicates.
+
+96
+00:05:55.640 --> 00:05:58.850
+Just in case, I would always
+suggest not to filter too much
+
+97
+00:05:58.850 --> 00:06:03.440
+to ensure you keep access to the initial
+data that may be useful later on now.
+
+98
+00:06:03.440 --> 00:06:04.725
+Now, that's it for this section.
+
+99
+00:06:04.725 --> 00:06:08.490
+In the next section, we're going to
+talk about working with missing values,
+
+100
+00:06:08.490 --> 00:06:11.150
+as well as working with outlier values.
+
+101
+00:06:11.150 --> 00:06:12.170
+I look forward to seeing you there.
