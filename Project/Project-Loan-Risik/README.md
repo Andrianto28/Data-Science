@@ -4,6 +4,9 @@
 - i generate several model of machine learning to process the accuracy, you can try what model that yield more accurate
 - of course before i did it, i was cleaning the data from missing value and drop some feature that had low correlation
 
+- This is link for dataset :
+https://drive.google.com/drive/folders/1uCa_RH6BkH1_GrZapaIxmLbL9mw7ztEu
+
 **Note** : you must change the directory of the data file based on your local computer directory..
 Enjoy..
 
